@@ -6,7 +6,7 @@
 <pre>
     sudo apt install golang mysql-server redis etcd git
 </pre>
-Создаем пользователя и БД, а также даем правая на созданную БД Mysql
+Создаем пользователя и БД, а также даем права на созданную БД Mysql
 <pre>
     sudo mysql -u root
 </pre>
