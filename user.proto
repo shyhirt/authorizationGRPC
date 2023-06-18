@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package user;
+option go_package="./user";
+
+message RegReq{
+  string email = 1;
+  string username = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string password = 5;
+}
+
+message RegResp{
+  int64 id = 1;
+}
+
+message LoginReq{
+  string login = 1;
+  string password = 2;
+}
+
+message LoginResp{
+  string accessToken = 1;
+  string refresh = 2;
+}
+
+message UserInfoReq{
+  string accessToken = 1;
+}
+
+message UserInfoResp{
+  int64 id = 1;
+  string email = 2;
+  string username = 3;
+  string firstName = 4;
+  string lastName = 5;
+}
+
+message RefreshReq{
+  string refresh = 1;
+}
+
+message VerificationCodeReq{
+  int64 code = 1;
+}
+
+message VerificationCodeResp{
+  bool result = 1;
+}
+
+service User {
+  rpc Registration (RegReq) returns (RegResp);
+  rpc Login (LoginReq) returns (LoginResp);
+  rpc UserInfo (UserInfoReq) returns (UserInfoResp);
+  rpc CheckVerificationCode (VerificationCodeReq) returns (VerificationCodeResp);
+}

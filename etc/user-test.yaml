@@ -1,0 +1,23 @@
+Name: user.rpc
+ListenOn: 0.0.0.0:8080
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: user.rpc
+DataSource: test:passwordtest@tcp(localhost:3306)/test?charset=utf8mb4&parseTime=true
+Cache:
+  - Host: 127.0.0.1:6379
+    Pass:
+    Type: node
+jwt:
+  AccessSecret: "etc/keys/jwtRS256.key"
+  AccessPublic: "etc/keys/jwtRS256.key.pub"
+  AccessExpire: 3600
+  RefreshExpire: 345600
+mail:
+  Login: ""
+  Identity: ""
+  From: ""
+  Password: ""
+  SmtpHost: "smtp.elasticemail.com"
+  SmtpPort: "2525"
